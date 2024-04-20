@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <listeners>
+        <listener class-name="reporting.Setup"></listener>
+    </listeners>
+    <test verbose="2" preserve-order="true" name="C:/Users/User 1/Devine_GAO/src/test/java/employee/employeeTests.java">
+        <classes>
+            <class name="employee.employeeTests">
+                <methods>
+                    <include name="employs"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
