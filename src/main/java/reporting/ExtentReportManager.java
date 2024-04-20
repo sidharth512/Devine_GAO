@@ -1,6 +1,7 @@
 package reporting;
 
 import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.markuputils.CodeLanguage;
 import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.aventstack.extentreports.reporter.ExtentReporter;
@@ -43,5 +44,10 @@ public class ExtentReportManager {
     }
     public static void logWaringDetails(String log){
         Setup.extentTest.get().warning(MarkupHelper.createLabel(log, ExtentColor.YELLOW));
+    }
+    public static void logJson(String json){
+        Setup.extentTest.get().info(MarkupHelper.createCodeBlock(json, CodeLanguage.JSON));
+
+
     }
 }

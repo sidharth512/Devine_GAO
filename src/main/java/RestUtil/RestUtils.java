@@ -21,12 +21,14 @@ public class RestUtils {
     private static void printRequestLogInReport(RequestSpecification requestSpecification){
         QueryableRequestSpecification queryableRequestSpecification= SpecificationQuerier.query(requestSpecification);
         ExtentReportManager.logInfoDetails("End Point : "+queryableRequestSpecification.getBaseUri());
-        ExtentReportManager.logInfoDetails("Request Body : "+queryableRequestSpecification.getBody());
+        ExtentReportManager.logInfoDetails("Request Body : ");
+        ExtentReportManager.logJson(queryableRequestSpecification.getBody());
         ExtentReportManager.logInfoDetails("Method Name : "+queryableRequestSpecification.getMethod());
         ExtentReportManager.logInfoDetails("Request Header : "+queryableRequestSpecification.getHeaders().asList().toString());
     }
 private static void printResponseLogInReport(Response response){
-    ExtentReportManager.logInfoDetails("Response Body : "+response.getBody().asString());
+    ExtentReportManager.logInfoDetails("Response Body : ");
+    ExtentReportManager.logJson(response.getBody().prettyPrint());
     ExtentReportManager.logInfoDetails("StatusCode Name : "+response.getStatusCode());
     ExtentReportManager.logInfoDetails("Response Header : "+response.getHeaders().asList().toString());
 }
