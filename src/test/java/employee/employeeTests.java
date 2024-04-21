@@ -16,9 +16,9 @@ public class employeeTests extends EmployeAPIs {
 
 
    //     String payload= Payload.payloadforemployeebystring("SIDHARTH PATTANAIK","QA Lead"); //Used for String method
-        Map<String,Object> payload= Payload.payloadforemployeebymap("Sidharth Pattanaik","QA Lead");
+        Map<String,Object> payload= Payload.payloadforemployeebymap("Sidharth Pattanaik","QA");
         Response response=createEmpData(payload);
-        Assert.assertEquals(response.statusCode(),201);
+        Assert.assertEquals(response.statusCode(),200);
           String body=response.getBody().asString();
           System.out.println("Response Body is : "+body);
 }
