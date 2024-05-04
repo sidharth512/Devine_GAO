@@ -1,6 +1,7 @@
 package employee;
 
 import Utils.JsonUtil;
+import employee.Pojos.employee;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -17,8 +18,9 @@ public class employeeTests extends EmployeAPIs {
 
       //  String payload= Payload.payloadforemployeebystring("SIDHARTH PATTANAIK","QA Lead"); //Used for String method
    //     Map<String,Object> payload= Payload.payloadforemployeebymap("Sidharth Pattanaik","QA"); // Used for given the data in Map
-       Map<String,Object> payload= Payload.payloadforemployeebymap(); // Data creation by faker data api
-     //   String payload  = Payload.payloadinfile("employeeDetails.json");
+    //   Map<String,Object> payload= Payload.payloadforemployeebymap(); // Data creation by faker data api
+     //   String payload  = Payload.payloadinfile("employeeDetails.json"); //payload as json file
+        employee payload= Payload.payloadFromPojo();
          Response response=createEmpData(payload);
         Assert.assertEquals(response.statusCode(),201);
           String body=response.getBody().asString();

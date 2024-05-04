@@ -48,4 +48,12 @@ private static void printResponseLogInReport(Response response){
         printResponseLogInReport(response);
         return response;
     }
+    public static Response performPost(String endpoints,Object requestPayload, Map<String,String>headers){
+        RequestSpecification requestSpecification = getRequestSpecification(endpoints,requestPayload,headers);
+        Response response=requestSpecification.post();
+        response .then().log().all().extract().response();
+        printRequestLogInReport(requestSpecification);
+        printResponseLogInReport(response);
+        return response;
+    }
 }

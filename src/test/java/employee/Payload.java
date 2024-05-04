@@ -1,6 +1,7 @@
 package employee;
 
 import com.aventstack.extentreports.ExtentTest;
+import employee.Pojos.employee;
 import net.datafaker.Faker;
 
 import java.io.IOException;
@@ -40,6 +41,14 @@ public class Payload {
             String payload = new String(filebody);
             return  body = payload;
 
+    }
+    public static employee payloadFromPojo(){
+        Faker faker = new Faker();
+       return employee
+                .builder()
+                .name(faker.name().fullName())
+                .job(faker.job().position())
+                .build();
     }
 
     }
