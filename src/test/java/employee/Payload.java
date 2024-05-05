@@ -1,14 +1,18 @@
 package employee;
 
 import com.aventstack.extentreports.ExtentTest;
+import employee.Pojos.Gender;
 import employee.Pojos.employee;
 import net.datafaker.Faker;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Stream;
 
 public class Payload {
     ThreadLocal<ExtentTest> extentTest=new ThreadLocal<>();
@@ -44,10 +48,13 @@ public class Payload {
     }
     public static employee payloadFromPojo(){
         Faker faker = new Faker();
+       //  String genderEmp = Stream.of("male","female","others").findAny().get();
+         Gender genderEmp=Arrays.stream(Gender.values()).findAny().get(); // reading the gender data from enum class
        return employee
                 .builder()
                 .name(faker.name().fullName())
                 .job(faker.job().position())
+                .gender(genderEmp)
                 .build();
     }
 

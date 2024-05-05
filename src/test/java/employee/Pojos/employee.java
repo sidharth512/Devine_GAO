@@ -8,4 +8,5 @@ import lombok.Data;
 public class employee {
     private String name;
     private String job;
+    private Object gender;
 }
