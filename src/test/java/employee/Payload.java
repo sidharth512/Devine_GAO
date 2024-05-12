@@ -3,6 +3,7 @@ package employee;
 import com.aventstack.extentreports.ExtentTest;
 import employee.Pojos.Gender;
 import employee.Pojos.employee;
+import lombok.EqualsAndHashCode;
 import net.datafaker.Faker;
 
 import java.io.IOException;
@@ -54,7 +55,7 @@ public class Payload {
                 .builder()
                 .name(faker.name().fullName())
                 .job(faker.job().position())
-                .gender(genderEmp)
+          //      .gender(genderEmp)
                 .build();
     }
 
